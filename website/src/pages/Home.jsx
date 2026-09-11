@@ -1,90 +1,138 @@
 import { Link } from 'react-router-dom'
+import { ArrowRight } from '../components/Icons.jsx'
+import { COMPASS_URL } from '../config.js'
+
+const stats = [
+  { value: '254', label: 'Texas counties in the dataset' },
+  { value: '30+', label: 'Student and volunteer researchers' },
+  { value: '4', label: 'Departments, from GIS to legal outreach' },
+]
+
+const about = [
+  {
+    title: 'Who We Are',
+    text: 'A committed team of data specialists, healthcare advocates, and technologists focused on bridging the gap between geospatial information and public health initiatives in Texas.',
+  },
+  {
+    title: 'What We Do',
+    text: 'We analyze complex cancer datasets to provide visual mapping and actionable insights that help communities identify trends and mobilize resources effectively.',
+  },
+  {
+    title: 'Why This Matters',
+    text: 'Data transparency is the foundation of effective advocacy. By making health outcomes visible through location-based data, we enable targeted solutions for those most affected by cancer.',
+  },
+  {
+    title: 'Our Advocacy Role',
+    text: 'We act as the technical bridge between data generators and public health advocates, ensuring that critical information is accessible, understandable, and strategically utilized for policy change.',
+  },
+]
 
 export default function Home() {
   return (
-    <div className="page page--home">
+    <>
       <section className="hero">
-        <div className="hero__content">
-          <h1 className="logo-text">Texas Geospatial Cancer Data Advocacy Project</h1>
+        {/* PLACEHOLDER: swap src/assets/backdrop.jpg for a Texas landscape / industrial corridor photo */}
+        <div className="hero__bg" aria-hidden="true" />
+        <div className="hero__wash" aria-hidden="true" />
 
-        </div>
-
-
-      </section>
-
-      <section className="mission-section">
-        <div className="section-head section-head--tight">
-          <div>
-            <h2>Our Mission</h2>
+        <div className="hero__inner">
+          <div className="hero__copy">
+            <span className="eyebrow eyebrow--light">Texas &middot; Public health &middot; Open data</span>
+            <h1>
+              Making Texas cancer data <em>visible, usable, and impossible to ignore.</em>
+            </h1>
+            <div className="btn-row">
+              <a className="btn btn--light" href="#compass">
+                Explore the Compass <ArrowRight />
+              </a>
+              <Link className="btn btn--outline-light" to="/contact">
+                Volunteer with us
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="content-block">
-          <h2>Who We Are</h2>
-          <p>
-            We are a student-driven legislative advocacy and data analysis project focused on
-            uncovering environmental carcinogen sources across Texas. Our work integrates
-            computer programming, cancer statistics, political outreach, and environmental data
-            analysis.
-          </p>
-        </div>
-
-        <div className="content-block">
-          <h2>What We Do</h2>
-          <p>
-            We investigate industrial sites that release carcinogens ,especially <b>benzene</b>,
-            into surrounding communities. These emissions correlate with elevated cancer rates,
-            including leukemia, in multiple Texas regions.
-          </p>
-        </div>
-
-        <div className="content-block">
-          <h2>Why This Matters</h2>
-          <p>
-            Communities often lack access to clear information about carcinogenic exposure. By
-            combining technical research with civic engagement, we aim to push for stronger
-            protections and regulatory action.
-          </p>
-        </div>
-
-        <div className="content-block">
-          <h2>Our Advocacy Role</h2>
-          <p>
-            As part of our mission, we research local, state, and federal representatives and
-            communicate our findings to them. This includes reaching out to offices, sharing
-            analytical reports, and finding stories of impacted communities to raise awareness about carcinogenic industrial activity.
-          </p>
+        <div className="statbar">
+          <div className="statbar__inner">
+            {stats.map((stat) => (
+              <div className="stat" key={stat.label}>
+                <span className="stat__value">{stat.value}</span>
+                <span className="stat__label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* mission actions removed per request */}
+      <section className="section" id="about">
+        <div className="shell">
+          <div className="about-grid">
+            {about.map((item) => (
+              <article className="about-card" key={item.title}>
+                <h2>{item.title}</h2>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <section className="map-section">
-        <div className="section-head">
-          <div>
+      <section className="section section--dark" id="compass">
+        <div className="shell">
+          <div className="compass__head">
+            <span className="eyebrow eyebrow--light">The tool</span>
             <h2>Texas Cancer Compass</h2>
-            <p>
-              Our interactive map below provides county-level cancer statistics layered against flagged
-              environmental sites, live and in progress.
+            <p className="lede lede--light">
+              County-level cancer statistics, mapped against flagged environmental sites.
             </p>
           </div>
-          <a
-            href="https://texascancer.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="section-head__link"
-          >
-            Open Full Map ↗
-          </a>
-        </div>
-        <div className="map-frame">
-          <iframe
-            src="https://texascancer.netlify.app/"
-            title="Texas Cancer Compass — cancer data explorer"
-            loading="lazy"
-          />
+
+          <div className="compass__frame">
+            <div className="map-embed">
+              {COMPASS_URL ? (
+                <iframe
+                  src={COMPASS_URL}
+                  title="Texas Cancer Compass interactive map"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="ph ph--light">
+                  {/* PLACEHOLDER: set COMPASS_URL in src/config.js */}
+                  <strong>Set COMPASS_URL in src/config.js</strong>
+                  <span>The live map loads here once the app is deployed</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {COMPASS_URL && (
+            <p className="compass__note">
+              <a href={COMPASS_URL} target="_blank" rel="noreferrer">
+                Open the full map in a new tab
+              </a>
+            </p>
+          )}
         </div>
       </section>
-    </div>
+
+      <section className="cta-band">
+        <div className="cta-band__inner">
+          <h2>Working on something this data could support?</h2>
+          <p className="lede lede--light">
+            We share our datasets and analysis with community groups, newsrooms and legislative
+            offices at no cost. Tell us what you are trying to find out.
+          </p>
+          <div className="btn-row">
+            <Link className="btn btn--light" to="/contact">
+              Contact the team <ArrowRight />
+            </Link>
+            <Link className="btn btn--outline-light" to="/officers">
+              Meet the researchers
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }

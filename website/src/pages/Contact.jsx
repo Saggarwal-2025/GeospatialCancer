@@ -1,51 +1,85 @@
+import { Mail, Pin, Users, Doc } from '../components/Icons.jsx'
+
+/* PLACEHOLDER: fill in the real contact details below. */
+const details = [
+  {
+    Icon: Mail,
+    label: 'Email',
+    value: '[ contact email - add here ]',
+    href: null,
+  },
+  {
+    Icon: Pin,
+    label: 'Based in',
+    value: '[ city / campus - add here ]',
+    href: null,
+  },
+  {
+    Icon: Users,
+    label: 'Social',
+    value: '[ Instagram / X / LinkedIn - add here ]',
+    href: null,
+  },
+  {
+    Icon: Doc,
+    label: 'Data requests',
+    value: '[ email for dataset requests - add here ]',
+    href: null,
+  },
+]
+
 export default function Contact() {
   return (
-    <div className="page">
-      <header className="page-header">
-        <h1>Reach Out to Us</h1>
-      </header>
-
-      <section className="content-block">
-        <h2>Reach The Team</h2>
-        <dl className="contact-list">
-          <div className="contact-list__row">
-            <dt>Email</dt>
-            <dd className="placeholder">[ contact email — add here ]</dd>
-          </div>
-          <div className="contact-list__row">
-            <dt>Phone</dt>
-            <dd className="placeholder">[ phone number — add here ]</dd>
-          </div>
-          <div className="contact-list__row">
-            <dt>Location</dt>
-            <dd className="placeholder">[ city / campus — add here ]</dd>
-          </div>
-          <div className="contact-list__row">
-            <dt>Social</dt>
-            <dd className="placeholder">[ Instagram / X / LinkedIn handles — add here ]</dd>
-          </div>
-        </dl>
+    <>
+      <section className="page-hero">
+        <div className="page-hero__inner">
+          <span className="breadcrumb">Contact</span>
+          <h1>Reach out, or join the investigation.</h1>
+          <p className="lede lede--light">
+            Whether you want the data, want to write about it, or want to help build it, this is
+            the front door.
+          </p>
+        </div>
       </section>
 
-      <section className="volunteer">
-        <div className="section-head section-head--tight">
-          <div>
-            <h2>Join the Investigation</h2>
-            <p>
-              We're a team of 30+ volunteers, and we're always looking for more help. If you're interested in joining the project, please fill out the form below and we'll be in touch.
+      <section className="section">
+        <div className="shell">
+          <dl className="contact-grid">
+            {details.map(({ Icon, label, value, href }) => (
+              <div className="contact-card" key={label}>
+                <span className="contact-card__icon">
+                  <Icon />
+                </span>
+                <dt>{label}</dt>
+                <dd>{href ? <a href={href}>{value}</a> : value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="section section--paper2">
+        <div className="shell">
+          <div className="section-head">
+            <span className="eyebrow">Volunteer</span>
+            <h2>Join the investigation</h2>
+            <p className="lede">
+              We are a team of thirty-plus volunteers and always looking for more. Fill out the
+              form and someone from the department that fits you will follow up.
             </p>
           </div>
-        </div>
-        <div className="form-frame">
-          <iframe
-            src="https://docs.google.com/forms/d/1YfLnM27lY3ATpBDFWyOTnUPcKPFSujKXQNuya5Q4U4w/viewform?embedded=true"
-            title="Volunteer sign-up form"
-            loading="lazy"
-          >
-            Loading form…
-          </iframe>
+
+          <div className="form-panel">
+            <iframe
+              src="https://docs.google.com/forms/d/1YfLnM27lY3ATpBDFWyOTnUPcKPFSujKXQNuya5Q4U4w/viewform?embedded=true"
+              title="Volunteer sign-up form"
+              loading="lazy"
+            >
+              Loading form...
+            </iframe>
+          </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

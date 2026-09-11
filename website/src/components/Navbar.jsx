@@ -1,56 +1,80 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import Logo from './Logo.jsx'
+import { Menu, Close } from './Icons.jsx'
+import { COMPASS_URL } from '../config.js'
+
+const links = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/departments', label: 'Departments' },
+  { to: '/officers', label: 'Team' },
+  { to: '/contact', label: 'Contact' },
+]
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
-  const closeMenu = () => setIsOpen(false)
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
-  const linkClass = ({ isActive }) =>
-    isActive ? 'navbar__links navbar__links--active' : 'navbar__links'
+  const linkClass = ({ isActive }) => (isActive ? 'nav__link is-active' : 'nav__link')
 
   return (
-    <header>
-      <nav className="navbar" role="navigation" aria-label="Main Navigation">
-        <div className="navbar__container">
-          <NavLink to="/" id="navbar-logo" onClick={closeMenu}>
-            Texas Geospatial Cancer Data Advocacy Project
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+
+      <header className="nav">
+        <div className="nav__inner">
+          <NavLink to="/" className="brand" aria-label="Home">
+            <Logo />
+            <span className="brand__text">
+              <span className="brand__kicker">Texas Geospatial</span>
+              <span className="brand__name">Cancer Data Advocacy Project</span>
+            </span>
           </NavLink>
 
-          <ul className={isOpen ? 'navbar__menu navbar__menu--active' : 'navbar__menu'}>
-            <li className="navbar__item">
-              <NavLink to="/" className={linkClass} onClick={closeMenu} end>
-                Home
-              </NavLink>
-            </li>
-            <li className="navbar__item">
-              <NavLink to="/departments" className={linkClass} onClick={closeMenu}>
-                Departments
-              </NavLink>
-            </li>
-            <li className="navbar__item">
-              <NavLink to="/officers" className={linkClass} onClick={closeMenu}>
-                Officers
-              </NavLink>
-            </li>
-            <li className="navbar__item">
-              <NavLink to="/contact" className={linkClass} onClick={closeMenu}>
-                Contact Us
-              </NavLink>
-            </li>
-          </ul>
+          <nav className={open ? 'nav__menu is-open' : 'nav__menu'} aria-label="Main">
+            <ul className="nav__links">
+              {links.map((link) => (
+                <li key={link.to}>
+                  <NavLink to={link.to} end={link.end} className={linkClass}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            {COMPASS_URL ? (
+              <a
+                className="btn btn--light nav__cta"
+                href={COMPASS_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Open the Compass
+              </a>
+            ) : (
+              <Link className="btn btn--light nav__cta" to="/#compass">
+                Open the Compass
+              </Link>
+            )}
+          </nav>
 
           <button
-            className="navbar__toggle"
-            id="mobile-menu"
-            aria-label="Toggle Navigation"
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen((open) => !open)}
+            type="button"
+            className="nav__toggle"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
           >
-            <i className={isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}></i>
+            {open ? <Close /> : <Menu />}
           </button>
         </div>
-      </nav>
-    </header>
+      </header>
+    </>
   )
 }
