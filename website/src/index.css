@@ -877,12 +877,6 @@ main {
   line-height: 1.2;
 }
 
-.member__bio {
-  font-size: 0.92rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
 /* Volunteer callout inside team page */
 
 .join-card {

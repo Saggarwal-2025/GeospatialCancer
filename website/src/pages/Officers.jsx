@@ -12,43 +12,36 @@ const officers = [
   {
     role: 'Project Lead',
     name: 'Alan Christopher Rajkumar',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Operating Officer',
     name: 'Tanvir Hoque',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Financial Officer',
     name: 'Pavit Yaduwanshi',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Technology Officer',
     name: 'Sarthak Aggarwal',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Legal Officer',
     name: 'Matteo',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Data Officer',
     name: 'Allison',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
   {
     role: 'Chief Research Officer',
     name: 'Yuze Ren',
-    bio: '[ one-line bio - add here ]',
     photo: null,
   },
 ]
@@ -85,7 +78,6 @@ export default function Officers() {
                 </div>
                 <span className="member__role">{officer.role}</span>
                 <h2 className="member__name">{officer.name}</h2>
-                <p className="member__bio">{officer.bio}</p>
               </div>
             ))}
           </div>
