@@ -1,30 +1,23 @@
-import { Mail, Pin, Users, Doc } from '../components/Icons.jsx'
+import { Mail, Users, Doc } from '../components/Icons.jsx'
 
-/* PLACEHOLDER: fill in the real contact details below. */
 const details = [
   {
     Icon: Mail,
     label: 'Email',
-    value: '[ contact email - add here ]',
-    href: null,
-  },
-  {
-    Icon: Pin,
-    label: 'Based in',
-    value: '[ city / campus - add here ]',
-    href: null,
+    value: 'admingeocancer@gmail.com',
+    href: 'mailto:admingeocancer@gmail.com',
   },
   {
     Icon: Users,
-    label: 'Social',
-    value: '[ Instagram / X / LinkedIn - add here ]',
-    href: null,
+    label: 'Instagram',
+    value: '@geocancer_institute',
+    href: 'https://www.instagram.com/geocancer_institute/',
   },
   {
     Icon: Doc,
     label: 'Data requests',
-    value: '[ email for dataset requests - add here ]',
-    href: null,
+    value: 'admingeocancer@gmail.com',
+    href: 'mailto:admingeocancer@gmail.com?subject=Dataset%20request',
   },
 ]
 
@@ -51,7 +44,18 @@ export default function Contact() {
                   <Icon />
                 </span>
                 <dt>{label}</dt>
-                <dd>{href ? <a href={href}>{value}</a> : value}</dd>
+                <dd>
+                  {href ? (
+                    <a
+                      href={href}
+                      {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    value
+                  )}
+                </dd>
               </div>
             ))}
           </dl>

@@ -4,7 +4,7 @@ import { Instagram, LinkedIn, XLogo, Github } from './Icons.jsx'
 import { COMPASS_URL } from '../config.js'
 
 const socials = [
-  { label: 'Instagram', href: '#', Icon: Instagram },
+  { label: 'Instagram', href: 'https://www.instagram.com/geocancer_institute/', Icon: Instagram },
   { label: 'LinkedIn', href: '#', Icon: LinkedIn },
   { label: 'X', href: '#', Icon: XLogo },
   { label: 'GitHub', href: '#', Icon: Github },
@@ -29,7 +29,13 @@ export default function Footer() {
           </p>
           <div className="socials" aria-label="Social links">
             {socials.map(({ label, href, Icon }) => (
-              <a key={label} href={href} aria-label={label} title={label}>
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                title={label}
+                {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+              >
                 <Icon />
               </a>
             ))}
@@ -68,10 +74,9 @@ export default function Footer() {
               ) : (
                 <Link to="/#compass">Texas Cancer Compass</Link>
               )}
-            </li>
-            {/* TODO: add a real mailing address for press enquiries */}
+            </li>
             <li>
-              <a href="mailto:hello@example.org">Press &amp; media</a>
+              <a href="mailto:admingeocancer@gmail.com">Press &amp; media</a>
             </li>
           </ul>
         </div>
