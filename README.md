@@ -92,8 +92,12 @@ platform builds them). To check the project against the platform contract:
 node .agents/skills/godaddy-nodejs-hosting/scripts/validate-paas.mjs .
 ```
 
-**Vercel.** Still works unchanged; `vercel.json` rewrites every path to `index.html`, which is
-the same job `server.js` does on GoDaddy.
+**Netlify.** `netlify.toml` sets the build command, the publish directory, and the SPA
+rewrite. Connect the repo and Netlify reads all three - no settings to fill in by hand.
+
+**Vercel.** `vercel.json` rewrites every path to `index.html`. Same job, different host.
+
+All three configs coexist; each host reads only its own and ignores the others.
 
 ## Colors
 
