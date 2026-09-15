@@ -1,165 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cancer Advocacy Project - Texas</title>
-        <link rel="stylesheet" href="styles.css">
-        <!-- font awesome link-->
-        <script src="https://kit.fontawesome.com/8780622af5.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <header>
-            <nav class="navbar" aria-label="Main Navigation">
-                <div class="navbar__container">
-                    <a href="#home" id="navbar-logo">Texas Cancer Advocacy Project</a>
-
-                    <button 
-                        class="navbar__toggle"
-                        id="mobile-menu" 
-                        type="button"
-                        aria-label="Toggle Navigation" 
-                        aria-expanded="false"
-                        aria-controls="primary-navigation"
-                    >
-                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                    </button>
-
-                    <ul class="navbar__menu" id="primary-navigation">
-                        <li class="navbar__item">
-                            <a href="#home" class="navbar__links">Home</a>
-                        </li>
-
-                        <li class="navbar__item">
-                            <a href="#mission" class="navbar__links">Mission</a>
-                        </li>
-
-                        <li class="navbar__item">
-                            <a href="missions.html" class="navbar__links">Missions</a>
-                            <a href="#progress" class="navbar__links">Progress</a>
-                        </li>
-
-                        <li class="navbar__item">
-                            <a href="progress.html" class="navbar__links">Progress</a>
-                            <a href="#numbers" class="navbar__links">Our Numbers</a>
-                        </li>
-
-                        <li class="navbar__item">
-                            <a href="#next" class="navbar__links">What's Next</a>
-                            <a href="numbers.html" class="navbar__links">Numbers</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <!--Hero/First place which users should look at-->
-        <section class="hero" id="home">
-            <div class="hero__container">
-                <div class="hero__content">
-                    <p class="hero__eyebrow">Student-Led Research and Advocacy</p>
-
-                    <h1>Investigating Cancer Patterns Across Texas</h1>
-
-                    <p class="hero__description">
-                        Texas Cancer Advocacy Project is a student-led initiative that
-                        combines data analysis and civic advocacy to investigate cancer
-                        patterns across Texas and examine possible environmental and
-                        industrial factors that may deserve further research. This project 
-                        does not automatically assume casuation, and is still in progress.
-                    </p>
-
-                    <div class="hero__buttons">
-                        <a href="#progress" class="button button--primary">Explore Our Work</a>
-                        <a href="#numbers" class="button button--secondary">View Our Numbers</a>
-                    </div>
-
-                    <div class="hero__stats" aria-label="Project highlights">
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">254</span>
-                            <span class="hero__stat-label">Texas counties mapped</span>
-                        </div>
-
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">1</span>
-                            <span class="hero__stat-label">Priority site under review</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero__visual" aria-hidden="true">
-                    <div class="hero-card">
-                        <h2>Texas Data Snapshot</h2>
-
-                        <div class="hero-card__row">
-                            <span>Counties mapped</span>
-                            <strong>254</strong>
-                        </div>
-
-                        <div class="hero-card__row">
-                            <span>Priority site</span>
-                            <strong>1</strong>
-                        </div>
-
-                        <div class="hero-card__row">
-                            <span>Coverage</span>
-                            <strong>Statewide</strong>
-                        </div>
-
-                        <div class="hero-card__chart">
-                            <div class="bar bar--1"></div>
-                            <div class="bar bar--2"></div>
-                            <div class="bar bar--3"></div>
-                            <div class="bar bar--4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--<section id="progress">
-            <h2>Progress</h2>
-            <body>
-                <h3>Identified Carcinogenic Site</h3>
-                <p>We have identified one potentially carcinogenic industrial site:</p>
-                <ul>
-                    <li>KSolv Maritime and Petroleum Plant (Channelview, Texas)</li>
-                    <ul>
-                        <li>Multiple sources — including local news articles, legal reports, and research — document excess benzene emissions.</li>
-                        <li>These emissions correlate with elevated leukemia incidence rates in nearby communities.</li>
-                    </ul>
-                </ul>
-                <h3>Technical Development</h3>
-                <p>We built a web application that visualizes cancer data across the entire state of Texas.</p>
-                <ul>
-                    <li>Data input is ongoing.</li>
-                    <li>We plan to expand to other states once we achieve measurable impact in Texas.</li>
-                </ul>
-                <h3>Environmental Research Progress</h3>
-                <p>Our team has identified dozens of potentially carcinogenic sites across Texas based on emission records, cancer‑rate anomalies, and environmental reports.</p>
-                <h3>Advocacy Progress  </h3>
-                <p>As part of our remediation strategy, we have begun engaging in political outreach:</p>
-                <ul>
-                    <li>Researching U.S. and Texas representatives</li>
-                    <li>Reviewing their environmental positions and committee roles</li>
-                    <li>Conducting interviews with several representatives (with more scheduled)</li>
-                    <li>Sharing findings to encourage regulatory action on carcinogen‑emitting facilities</li>
-                </ul>
-            </body>
-        </section-->
-
-
-
-        <script src="app.js"></script>
-        <h1 class="logo-text">Cancer Advocacy Project - Landing Page</h1>
-        <h2>Mission:</h2>
-        <p>We are a student‑led legislative advocacy and data analysis project working to identify carcinogenic environmental sites across Texas and push for regulatory action to protect affected communities.</p>
-        <a href="mission.html">Go to Mission</a>
-        <h2>Progress: </h2>
-        <p>We’ve identified a high‑risk benzene‑emitting site in Channelview, built a statewide cancer‑data web app, and begun outreach to representatives.</p>
-        <a href="progress.html">Go to Progress</a>
-        <h2>Numbers:</h2>
-        <p>We’ve completed leukemia incidence mapping across Texas counties and identified dozens of potential carcinogen‑releasing sites.</p>
-        <a href="numbers.html">Go to Numbers</a-->
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Texas Geospatial Cancer Data Advocacy Project</title>
+    <meta
+      name="description"
+      content="A volunteer research collective mapping cancer outcomes against environmental exposure across Texas, and putting that evidence in front of the people who can act on it."
+    />
+    <meta name="theme-color" content="#4f1b1f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;500;600;700&family=Kumbh+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
