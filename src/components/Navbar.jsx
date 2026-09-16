@@ -32,8 +32,8 @@ export default function Navbar() {
           <NavLink to="/" className="brand" aria-label="Home">
             <Logo />
             <span className="brand__text">
-              <span className="brand__kicker">Geocancer</span>
-              <span className="brand__name">Institute</span>
+              
+              <span className="brand__name"> Geocancer Institute</span>
             </span>
           </NavLink>
 
