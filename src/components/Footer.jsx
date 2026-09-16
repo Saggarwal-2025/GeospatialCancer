@@ -74,7 +74,8 @@ export default function Footer() {
               ) : (
                 <Link to="/#compass">Texas Cancer Compass</Link>
               )}
-            </li>
+            </li>
+
             <li>
               <a href="mailto:admingeocancer@gmail.com">Press &amp; media</a>
             </li>
@@ -83,7 +84,7 @@ export default function Footer() {
       </div>
 
       <div className="footer__base">
-        <span>© {new Date().getFullYear()} Texas Geospatial Cancer Data Advocacy Project</span>
+        <span>© {new Date().getFullYear()}Geocancer Insitute</span>
         <span>Built by volunteers · Data sourced from public records</span>
       </div>
     </footer>
